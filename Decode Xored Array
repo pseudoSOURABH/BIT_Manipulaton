@@ -1,0 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> decode(vector<int> encoded, int first) {
+    vector<int> res(1,first);
+        for(int i=0; i<encoded.size(); i++){
+            res.push_back( encoded[i] xor res[i] ); // encoded[i]^res[i] 
+        } return res;
+}

@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int countbits(int n)
+{
+    int count=0;
+    while(n>0){
+        n=(n & (n-1));
+        count++;
+    }return count;
+}
+int compareInterval(int a,int b)
+{
+    return (countbits(a)==countbits(b)?a<b:countbits(a)<countbits(b));
+}
+
+vector<int> sortByBits(vector<int> arr) {
+        vector<int>sorted_bits(arr);
+        
+        sort(sorted_bits.begin(),sorted_bits.end(),compareInterval);
+        return sorted_bits;
+}

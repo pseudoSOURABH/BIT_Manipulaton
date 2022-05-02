@@ -1,0 +1,35 @@
+vector<int> singleNumber(vector<int> nums) 
+    {
+        // Code here.
+         int n=nums.size();
+       int x=0;
+       for(int i=0;i<n;i++)
+       {
+           x=x^nums[i];
+       }
+       int mask=0;
+       for(int i=0;i<31;i++)
+       {
+           if(x&1<<i)
+           {
+               mask=1<<i;
+           }
+       }
+       int a=0,b=0;
+       for(int i=0;i<n;i++)
+       {
+           if(nums[i]&mask)
+           {
+               a=a^nums[i];
+           }
+           else
+           {
+               b=b^nums[i];
+           }
+       }
+       vector<int>v;
+       v.push_back(a);
+       v.push_back(b);
+       sort(v.begin(),v.end());
+       return v;
+    }

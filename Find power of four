@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPowerOfFour(int n) {
+               int count=0;
+               //check if bit is set or not
+               if(n && !(n&n-1))
+               {
+                  //count the no of unset bits before the only set bit.
+                  while(n>1)
+                  {
+                    n>>=1;
+                    count++;
+                    
+                    
+              
+                  }
+                  return (count%2==0)?true:false;
+               
+                }
+                return false;
+               
+}

@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int countTriplets(vector<int> A) {
+       // Stores the count of triplets
+    // having bitwise AND equal to 0
+    int cnt = 0;
+ 
+    // Stores frequencies of all possible A[i] & A[j]
+    unordered_map<int, int> tuples;
+ 
+    // Traverse the array
+    for (auto a : A)
+ 
+        // Update frequency of Bitwise AND
+        // of all array elements with a
+        for (auto b : A)
+            ++tuples[a & b];
+ 
+    // Traverse the array
+    for (auto a : A)
+ 
+        // Iterate the map
+        for (auto t : tuples)
+ 
+            // If bitwise AND of triplet
+            // is zero, increment cnt
+            if ((t.first & a) == 0)
+                cnt += t.second;
+ 
+    // Return the number of triplets
+    // whose Bitwise AND is 0.
+    return cnt;
+    
+}
